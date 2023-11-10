@@ -1,7 +1,7 @@
 ###########################################
 # CONTAINER: APACHE + PHP + OCI8
 ###########################################
-FROM php:8.1.1-apache
+FROM php:8.2-apache
 
 RUN apt-get update \
     && apt-get install -y unzip libaio1 \
