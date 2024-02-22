@@ -1,7 +1,7 @@
 ###########################################
 # CONTAINER: APACHE + PHP + OCI8
 ###########################################
-FROM php:8.1-apache
+FROM php:8.2-apache
 
 RUN apt-get update \
     && apt-get install -y unzip libaio1 \
@@ -16,7 +16,7 @@ RUN unzip /tmp/instantclient-basiclite-linux.x64-12.2.0.1.0.zip -d /usr/local/ \
 # install oci8
 RUN ln -s /usr/local/instantclient_12_2 /usr/local/instantclient \
     && ln -s /usr/local/instantclient/libclntsh.so.12.1 /usr/local/instantclient/libclntsh.so \
-    && echo 'instantclient,/usr/local/instantclient' | pecl install oci8-3.2.1
+    && echo 'instantclient,/usr/local/instantclient' | pecl install oci8
 
 ENV LD_LIBRARY_PATH /usr/local/instantclient_12_2/
 
